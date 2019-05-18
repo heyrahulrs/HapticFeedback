@@ -34,17 +34,20 @@ class ViewController: UIViewController {
     @IBAction func didTapImpactFeedbackGenerator(_ sender: UIButton){
         let style = UIImpactFeedbackGenerator.FeedbackStyle(rawValue: sender.tag)
         let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: style ?? .medium)
+        impactFeedbackGenerator.prepare()
         impactFeedbackGenerator.impactOccurred()
     }
     
     @IBAction func didTapSelectionFeedbackGeneratorButton(){
         let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.prepare()
         selectionFeedbackGenerator.selectionChanged()
     }
     
     @IBAction func didTapNotificationFeedbackGenerator(_ sender: UIButton){
         let style = UINotificationFeedbackGenerator.FeedbackType(rawValue: sender.tag)
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
         notificationFeedbackGenerator.notificationOccurred(style ?? .success)
     }
 
